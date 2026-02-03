@@ -82,7 +82,7 @@ export const Header = () => {
 
             {/* Mobile Menu Links */}
             <ul className="flex flex-col space-y-4 text-lg font-medium">
-              {["Home", "Skills", "Qualification", "Projects", "About Us", "Contact"].map((label) => (
+              {["Home",  "About Us", "Contact"].map((label) => (
                 <li key={label}>
                   <Link
                     href={label === "Home" ? "/" : `/${label.toLowerCase()}`}
