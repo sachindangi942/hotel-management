@@ -56,7 +56,7 @@ export default function Dashboard() {
   });
 
   return (
-    <div className="min-h-screen bg-black text-white p-6">
+    <div className="min-h-screen overflow-x-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800">
       <h1 className="text-2xl font-bold mb-4">Hotel Management Dashboard</h1>
 
       <TopControls
