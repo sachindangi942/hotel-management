@@ -43,7 +43,6 @@
 "use client";
 
 const FloorRooms = ({ rooms, onRoomClick }) => {
-  console.log("FloorRooms type : " ,  onRoomClick)
   return (
     <div className="space-y-6">
       {Object.entries(

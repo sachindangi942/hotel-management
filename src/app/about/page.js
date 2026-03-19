@@ -1,4 +1,6 @@
-const { default: About } = require("@/component/About");
+// const { default: About } = require("@/component/About");
 
-const Page=()=> <About/>
+import HotelInfoSection from "@/component/HotelInfoSec";
+
+const Page=()=> <HotelInfoSection/>
 export default Page;

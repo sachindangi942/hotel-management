@@ -27,8 +27,8 @@ export const Header = () => {
         variants={navVariants}
         initial="hidden"
         animate="visible"
-        className="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 
-        text-white shadow-md sticky top-0 z-50"
+        className="bg-gradient-to-r from-amber-700 via-yellow-700 to-amber-800 
+//         text-white shadow-md sticky top-0 z-50"
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center relative">
           {/* Logo */}
@@ -99,3 +99,110 @@ export const Header = () => {
     </>
   );
 };
+
+
+
+
+// 'use client';
+// import Link from "next/link";
+// import { useState, useEffect } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+
+// const navVariants = {
+//   hidden: { opacity: 0, y: -20 },
+//   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+// };
+
+// const linkVariants = {
+//   hover: { scale: 1.1, transition: { duration: 0.3 } },
+// };
+
+// export const Header = () => {
+//   const [menuOpen, setMenuOpen] = useState(false);
+
+//   useEffect(() => {
+//     document.body.style.overflow = menuOpen ? "hidden" : "auto";
+//   }, [menuOpen]);
+
+//   return (
+//     <>
+//       {/* Navigation Bar */}
+//       <motion.nav
+//         variants={navVariants}
+//         initial="hidden"
+//         animate="visible"
+//         className="bg-gradient-to-r from-amber-700 via-yellow-700 to-amber-800 
+//         text-white shadow-md sticky top-0 z-50"
+//       >
+//         <div className="container mx-auto px-4 py-4 flex justify-between items-center relative">
+
+//           {/* Logo */}
+//           <div className="hidden sm:block text-2xl font-bold">
+//             ShivLok 🔱 Hotel
+//           </div>
+
+//           {/* Hamburger */}
+//           <button
+//             className="sm:hidden text-3xl"
+//             onClick={() => setMenuOpen(true)}
+//           >
+//             ☰
+//           </button>
+
+//           {/* Desktop Menu */}
+//           <ul className="hidden sm:flex space-x-8 font-medium text-lg">
+//             {[
+//               { label: "Home", path: "/" },
+//               { label: "About Us", path: "/about" },
+//               { label: "Contact", path: "/contact" },
+//             ].map((item) => (
+//               <motion.li key={item.label} variants={linkVariants} whileHover="hover">
+//                 <Link href={item.path} className="hover:text-gray-200">
+//                   {item.label}
+//                 </Link>
+//               </motion.li>
+//             ))}
+//           </ul>
+//         </div>
+//       </motion.nav>
+
+//       {/* Mobile Drawer */}
+//       <AnimatePresence>
+//         {menuOpen && (
+//           <motion.div
+//             initial={{ x: "-100%" }}
+//             animate={{ x: 0 }}
+//             exit={{ x: "-100%" }}
+//             transition={{ duration: 0.4 }}
+//             className="fixed top-0 left-0 w-3/4 h-full bg-amber-800 
+//             z-50 p-6 space-y-6 text-white sm:hidden"
+//           >
+//             <button
+//               className="text-2xl mb-4"
+//               onClick={() => setMenuOpen(false)}
+//             >
+//               ✕
+//             </button>
+
+//             <ul className="flex flex-col space-y-4 text-lg font-medium">
+//               {[
+//                 { label: "Home", path: "/" },
+//                 { label: "About Us", path: "/about" },
+//                 { label: "Contact", path: "/contact" },
+//               ].map((item) => (
+//                 <li key={item.label}>
+//                   <Link
+//                     href={item.path}
+//                     onClick={() => setMenuOpen(false)}
+//                   >
+//                     {item.label}
+//                   </Link>
+//                 </li>
+//               ))}
+//             </ul>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </>
+//   );
+// };
