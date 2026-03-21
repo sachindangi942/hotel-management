@@ -43,7 +43,7 @@ export const Header = () => {
     
               src="/logo/shivlok.logo.jpeg"
               alt="Shivlok Hotel Logo"
-              width={70}
+              width={50}
               height={40}
               className="object-contain rounded-full"
               priority

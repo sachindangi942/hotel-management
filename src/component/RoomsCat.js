@@ -10,7 +10,7 @@ export default function RoomCategories() {
   const rooms = [
     {
       name: "Economy Double  Suite",
-      image: "/Rooms/Economy_Double.png",
+      image: "/rooms/Economy_Double.png",
       rating: 4.8,
       video: "/Vedio/vedio.mp4",
     },
