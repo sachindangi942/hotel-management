@@ -6,11 +6,11 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative h-[80vh] w-full">
+    <section className="relative h-[100vh] w-full">
 
       {/* Background Image */}
       <Image
-        src="/shivlokhotel rooms.jpg"
+        src="/HsuitRoom.png"
         alt="Shivlok Hotel"
         fill
 

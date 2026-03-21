@@ -4,6 +4,7 @@ import { Header } from "@/component/Header";
 import "antd/dist/reset.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "@/component/Footer";
 
 
 const geistSans = Geist({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
       >
         <Header />
         {children}
+        <Footer/>
       </body>
     </html>
   );

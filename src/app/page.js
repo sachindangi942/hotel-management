@@ -176,11 +176,10 @@ export default function Home() {
       </section>
       <RoomCategories />
       <BanquetSection />
-      <HotelInfoSection />
-      <Footer />
-      <footer className="bg-gray-900 text-white text-center py-4">
+      {/* <Footer /> */}
+      {/* <footer className="bg-gray-900 text-white text-center py-4">
         © {new Date().getFullYear()} Shivlok Hotel
-      </footer>
+      </footer> */}
 
     </div>
   );

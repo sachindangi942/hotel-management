@@ -2,66 +2,84 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navVariants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const linkVariants = {
-  hover: { scale: 1.1, transition: { duration: 0.3 } },
-};
+import Image from "next/image";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Prevent scroll when mobile menu is open
+  // Mobile menu scroll lock
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
   }, [menuOpen]);
 
+  // Scroll detect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 80); // 👈 adjust value if needed
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      {/* Navigation Bar */}
       <motion.nav
-        variants={navVariants}
-        initial="hidden"
-        animate="visible"
-        className="bg-gradient-to-r from-amber-700 via-yellow-700 to-amber-800 
-//         text-white shadow-md sticky top-0 z-50"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
+        ${scrolled
+            ? "bg-white shadow-md backdrop-blur-md"
+            : "bg-transparent"}
+        `}
       >
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center relative">
-          {/* Logo */}
-          <div className="hidden sm:block text-2xl font-bold text-gray-300">
-            ShivLok🔱Hotel
-          </div>
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
 
-          {/* Hamburger (Mobile Only) */}
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <Image
+    
+              src="/logo/shivlok.logo.jpeg"
+              alt="Shivlok Hotel Logo"
+              width={70}
+              height={40}
+              className="object-contain rounded-full"
+              priority
+            />
+          </Link>
+
+          {/* Desktop Menu */}
+          <ul className="hidden sm:flex space-x-8 font-medium text-lg">
+            {["Home", "About", "Inquiry"].map((label) => (
+              <li key={label}>
+                <Link
+                  href={label === "Home" ? "/" : `/${label.toLowerCase()}`}
+                  className={`relative transition-colors duration-300
+                  ${scrolled ? "text-gray-700" : "text-white"}
+                  hover:text-amber-500`}
+                >
+                  {label}
+
+                  {/* underline animation */}
+                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* Mobile Button */}
           <button
-            className="sm:hidden text-3xl text-gray-300"
+            className={`sm:hidden text-3xl ${scrolled ? "text-gray-800" : "text-white"}`}
             onClick={() => setMenuOpen(true)}
           >
             ☰
           </button>
-
-          {/* Desktop Menu */}
-          <ul className="hidden sm:flex space-x-8 font-medium text-gray-200 text-lg">
-            {["Home", "About", "Inquery"].map((label, i) => (
-              <motion.li
-                key={label}
-                variants={linkVariants}
-                whileHover="hover"
-              >
-                <Link href={label === "Home" ? "/" : `/${label.toLowerCase()}`} className="hover:text-blue-500">
-                  {label === "About" ? "About Us" : label}
-                </Link>
-              </motion.li>
-            ))}
-          </ul>
         </div>
       </motion.nav>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -69,10 +87,8 @@ export const Header = () => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.4 }}
-            className="fixed top-0 left-0 w-3/4 h-full bg-gray-900 bg-opacity-95 backdrop-blur-md 
-            z-50 p-6 space-y-6 text-white sm:hidden"
+            className="fixed top-0 left-0 w-3/4 h-full bg-gray-900 z-50 p-6 text-white"
           >
-            {/* Close Button */}
             <button
               className="text-2xl mb-4"
               onClick={() => setMenuOpen(false)}
@@ -80,15 +96,14 @@ export const Header = () => {
               ✕
             </button>
 
-            {/* Mobile Menu Links */}
-            <ul className="flex flex-col space-y-4 text-lg font-medium">
-              {["Home",  "About Us", "Contact"].map((label) => (
+            <ul className="flex flex-col space-y-4 text-lg">
+              {["Home", "About", "Contact"].map((label) => (
                 <li key={label}>
                   <Link
                     href={label === "Home" ? "/" : `/${label.toLowerCase()}`}
                     onClick={() => setMenuOpen(false)}
                   >
-                    {label === "About" ? "About Us" : label}
+                    {label}
                   </Link>
                 </li>
               ))}
@@ -99,110 +114,3 @@ export const Header = () => {
     </>
   );
 };
-
-
-
-
-// 'use client';
-// import Link from "next/link";
-// import { useState, useEffect } from "react";
-// import { motion, AnimatePresence } from "framer-motion";
-
-// const navVariants = {
-//   hidden: { opacity: 0, y: -20 },
-//   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-// };
-
-// const linkVariants = {
-//   hover: { scale: 1.1, transition: { duration: 0.3 } },
-// };
-
-// export const Header = () => {
-//   const [menuOpen, setMenuOpen] = useState(false);
-
-//   useEffect(() => {
-//     document.body.style.overflow = menuOpen ? "hidden" : "auto";
-//   }, [menuOpen]);
-
-//   return (
-//     <>
-//       {/* Navigation Bar */}
-//       <motion.nav
-//         variants={navVariants}
-//         initial="hidden"
-//         animate="visible"
-//         className="bg-gradient-to-r from-amber-700 via-yellow-700 to-amber-800 
-//         text-white shadow-md sticky top-0 z-50"
-//       >
-//         <div className="container mx-auto px-4 py-4 flex justify-between items-center relative">
-
-//           {/* Logo */}
-//           <div className="hidden sm:block text-2xl font-bold">
-//             ShivLok 🔱 Hotel
-//           </div>
-
-//           {/* Hamburger */}
-//           <button
-//             className="sm:hidden text-3xl"
-//             onClick={() => setMenuOpen(true)}
-//           >
-//             ☰
-//           </button>
-
-//           {/* Desktop Menu */}
-//           <ul className="hidden sm:flex space-x-8 font-medium text-lg">
-//             {[
-//               { label: "Home", path: "/" },
-//               { label: "About Us", path: "/about" },
-//               { label: "Contact", path: "/contact" },
-//             ].map((item) => (
-//               <motion.li key={item.label} variants={linkVariants} whileHover="hover">
-//                 <Link href={item.path} className="hover:text-gray-200">
-//                   {item.label}
-//                 </Link>
-//               </motion.li>
-//             ))}
-//           </ul>
-//         </div>
-//       </motion.nav>
-
-//       {/* Mobile Drawer */}
-//       <AnimatePresence>
-//         {menuOpen && (
-//           <motion.div
-//             initial={{ x: "-100%" }}
-//             animate={{ x: 0 }}
-//             exit={{ x: "-100%" }}
-//             transition={{ duration: 0.4 }}
-//             className="fixed top-0 left-0 w-3/4 h-full bg-amber-800 
-//             z-50 p-6 space-y-6 text-white sm:hidden"
-//           >
-//             <button
-//               className="text-2xl mb-4"
-//               onClick={() => setMenuOpen(false)}
-//             >
-//               ✕
-//             </button>
-
-//             <ul className="flex flex-col space-y-4 text-lg font-medium">
-//               {[
-//                 { label: "Home", path: "/" },
-//                 { label: "About Us", path: "/about" },
-//                 { label: "Contact", path: "/contact" },
-//               ].map((item) => (
-//                 <li key={item.label}>
-//                   <Link
-//                     href={item.path}
-//                     onClick={() => setMenuOpen(false)}
-//                   >
-//                     {item.label}
-//                   </Link>
-//                 </li>
-//               ))}
-//             </ul>
-//           </motion.div>
-//         )}
-//       </AnimatePresence>
-//     </>
-//   );
-// };
