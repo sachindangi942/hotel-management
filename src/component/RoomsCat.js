@@ -10,33 +10,33 @@ export default function RoomCategories() {
   const rooms = [
     {
       name: "Economy Double  Suite",
-      image: "/rooms/Economy_Double.png",
+      image: "/Rooms/Economy_Double.png",
       rating: 4.8,
       video: "/Vedio/vedio.mp4",
     },
     {
       name: "Deluxe Premium  ",
-      image: "/rooms/Deluxe.png",
+      image: "/Rooms/Deluxe.png",
       rating: 4.5,
-      video: "/rooms/room2.mp4",
+      video: "/Rooms/room2.mp4",
     },
     {
       name: "Superiour King",
-      image: "/rooms/Superiour.jpg",
+      image: "/Rooms/Superiour.jpg",
       rating: 4.2,
-      video: "/rooms/room3.mp4",
+      video: "/Rooms/room3.mp4",
     },
     {
       name: "Kailash Bliss",
-      image: "/rooms/4bed.jpg",
+      image: "/Rooms/4bed.jpg",
       rating: 4.6,
-      video: "/rooms/room4.mp4",
+      video: "/Rooms/room4.mp4",
     },
     {
       name: "Honeymoon Suite",
-      image: "/rooms/H_Suit.png",
+      image: "/Rooms/H_Suit.png",
       rating: 4.9,
-      video: "/rooms/room5.mp4",
+      video: "/Rooms/room5.mp4",
     },
   ];
 
