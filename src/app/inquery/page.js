@@ -1,6 +1,6 @@
-const { default: Contact } = require("@/component/Contact")
+// const { default: Contact } = require("@/component/Contact")
 
- const Page=()=>{
-  return <Contact/>
-}
-export default Page;
+//  const Page=()=>{
+//   return <Contact/>
+// }
+// export default Page;
