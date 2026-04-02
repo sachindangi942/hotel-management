@@ -52,7 +52,7 @@ export const Header = () => {
 
           {/* Desktop Menu */}
           <ul className="hidden sm:flex space-x-8 font-medium text-lg">
-            {["Home", "About", "Contect"].map((label) => (
+            {["Home", "About", "Contact"].map((label) => (
               <li key={label}>
                 <Link
                   href={label === "Home" ? "/" : `/${label.toLowerCase()}`}
