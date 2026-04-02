@@ -1,12 +1,32 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+import { FaPlay } from "react-icons/fa";
+
 export default function BanquetSection() {
+  const [activeVideo, setActiveVideo] = useState(null);
+
   const halls = [
-    "Nataraj Hall",
-    "Tandav Hall",
-    "Kailash Terrace",
+    {
+      name: "Nataraj Hall",
+      image: "/banquet/natrajHall.png",
+      video: "/Vedio/natrajHall.mp4",
+    },
+    {
+      name: "Tandav Hall",
+      image: "/banquet/tandavHall.png",
+      video: "/banquet/tandav.mp4",
+    },
+    {
+      name: "Kailash Terrace",
+      image: "/banquet/kailash.jpg",
+      video: "/banquet/kailash.mp4",
+    },
   ];
 
   return (
-    <section className="py-16">
+    <section className="py-16 bg-gray-100">
       <div className="max-w-6xl mx-auto text-center px-4">
 
         <h2 className="text-3xl font-bold mb-10">
@@ -16,13 +36,61 @@ export default function BanquetSection() {
         <div className="grid md:grid-cols-3 gap-6">
           {halls.map((hall) => (
             <div
-              key={hall}
-              className="bg-gray-100 shadow rounded-lg p-6 hover:shadow-lg transition"
+              key={hall.name}
+              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group"
             >
-              <h3 className="text-xl font-semibold">{hall}</h3>
+              
+              {/* Image */}
+              <div className="relative">
+                <Image
+                  src={hall.image}
+                  alt={hall.name}
+                  width={400}
+                  height={250}
+                  className="w-full h-52 object-cover group-hover:scale-105 transition duration-300"
+                />
+
+                {/* Play Button */}
+                <button
+                  onClick={() => setActiveVideo(hall.video)}
+                  className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition"
+                >
+                  <FaPlay className="text-white text-3xl" />
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-4 text-left">
+                <h3 className="text-lg font-semibold">
+                  {hall.name}
+                </h3>
+              </div>
             </div>
           ))}
         </div>
+
+        {/* 🎥 Fullscreen Video Modal */}
+        {activeVideo && (
+          <div className="fixed inset-0 bg-black z-50">
+            
+            {/* Close Button */}
+            <button
+              onClick={() => setActiveVideo(null)}
+              className="absolute top-4 right-4 text-white text-3xl z-50"
+            >
+              ✖
+            </button>
+
+            {/* Video */}
+            <video
+              src={activeVideo}
+              controls
+              autoPlay
+              onEnded={() => setActiveVideo(null)} // ✅ auto close
+              className="w-full h-full object-contain"
+            />
+          </div>
+        )}
 
       </div>
     </section>

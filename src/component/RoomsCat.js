@@ -36,7 +36,7 @@ export default function RoomCategories() {
       name: "Honeymoon Suite",
       image: "/Rooms/H_Suit.png",
       rating: 4.9,
-      video: "/Rooms/room5.mp4",
+      video: "/Vedio/Hsuit_vedio.mp4",
     },
   ];
 
@@ -54,7 +54,7 @@ export default function RoomCategories() {
               key={room.name}
               className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group"
             >
-              
+
               {/* Image */}
               <div className="relative">
                 <Image
@@ -64,14 +64,6 @@ export default function RoomCategories() {
                   height={250}
                   className="w-full h-52 object-cover group-hover:scale-105 transition"
                 />
-
-                {/* Rating */}
-                {/* <div className="absolute top-2 right-2 bg-white px-2 py-1 rounded flex items-center gap-1 shadow"> */}
-                  {/* <FaStar className="text-yellow-500" /> */}
-                  {/* <span className="text-sm font-semibold">{room.rating}</span> */}
-                {/* </div> */}
-
-                {/* Play Button */}
                 <button
                   onClick={() => setActiveVideo(room.video)}
                   className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition"
@@ -94,7 +86,7 @@ export default function RoomCategories() {
         {activeVideo && (
           <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
             <div className="bg-white p-4 rounded-lg max-w-2xl w-full relative">
-              
+
               <button
                 onClick={() => setActiveVideo(null)}
                 className="absolute top-2 right-2 text-black text-xl"
@@ -106,12 +98,12 @@ export default function RoomCategories() {
                 src={activeVideo}
                 controls
                 autoPlay
+                onEnded={() => setActiveVideo(null)} // ✅ yahi important hai
                 className="w-full rounded"
               />
             </div>
           </div>
         )}
-
       </div>
     </section>
   );

@@ -2,13 +2,13 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-gray-100 text-gray-700">
 
       <div className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8">
 
         {/* Hotel Info */}
         <div>
-          <h3 className="text-xl font-semibold text-white mb-4">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
             Hotel Shivlok
           </h3>
 
@@ -21,18 +21,18 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h3 className="text-xl font-semibold text-white mb-4">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
             Contact
           </h3>
 
           <p>📞 9039755109</p>
           <p>📧 shivlok0001@gmail.com</p>
-          <p>📍 Raipur, Chhattisgarh</p>
+          <p>📍 Bhopal Madhya Pradesh</p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-xl font-semibold text-white mb-4">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
             Quick Links
           </h3>
 
@@ -46,8 +46,7 @@ export default function Footer() {
 
       </div>
 
-      {/* Bottom */}
-      <div className="border-t border-gray-700 text-center py-4 text-sm">
+      <div className="border-t border-gray-300 text-center py-4 text-sm">
         © {new Date().getFullYear()} Hotel Shivlok. All rights reserved.
       </div>
 
