@@ -10,19 +10,19 @@ export default function RoomCategories() {
   const rooms = [
     {
       name: "Economy Double  Suite",
-      image: "/Rooms/Economy_Double.png",
+      image: "/Rooms/couplesinghlebed.jpg",
       rating: 4.8,
       video: "/Vedio/vedio.mp4",
     },
     {
       name: "Deluxe Premium  ",
-      image: "/Rooms/Deluxe.png",
+      image: "/Rooms/doublewithsofa2.jpg",
       rating: 4.5,
       video: "/Rooms/room2.mp4",
     },
     {
       name: "Superiour King",
-      image: "/Rooms/Superiour.jpg",
+      image: "/Rooms/doublewithsofa.jpg",
       rating: 4.2,
       video: "/Rooms/room3.mp4",
     },

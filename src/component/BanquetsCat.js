@@ -10,17 +10,17 @@ export default function BanquetSection() {
   const halls = [
     {
       name: "Nataraj Hall",
-      image: "/banquet/natrajHall.png",
+      image: "/Rooms/basswithrounded.jpg",
       video: "/Vedio/natrajHall.mp4",
     },
     {
       name: "Tandav Hall",
-      image: "/banquet/tandavHall.png",
+      image: "/Rooms/Ghalwithstage.jpg",
       video: "/banquet/tandav.mp4",
     },
     {
       name: "Kailash Terrace",
-      image: "/banquet/kailash.jpg",
+      image: "/Rooms/coctail.jpg",
       video: "/banquet/kailash.mp4",
     },
   ];

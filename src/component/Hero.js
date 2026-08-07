@@ -10,7 +10,7 @@ export default function HeroSection() {
 
       {/* Background Image */}
       <Image
-        src="/HsuitRoom.png"
+        src="/Rooms/reception.jpg"
         alt="Shivlok Hotel"
         fill
 
