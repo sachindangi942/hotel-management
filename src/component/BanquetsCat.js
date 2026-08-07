@@ -11,17 +11,17 @@ export default function BanquetSection() {
     {
       name: "Nataraj Hall",
       image: "/Rooms/basswithrounded.jpg",
-      video: "/Vedio/natrajHall.mp4",
+      video: "/Vedio/func.bhall.mp4",
     },
     {
       name: "Tandav Hall",
       image: "/Rooms/Ghalwithstage.jpg",
-      video: "/banquet/tandav.mp4",
+      video: "/Vedio/func.ghall.mp4",
     },
     {
       name: "Kailash Terrace",
       image: "/Rooms/coctail.jpg",
-      video: "/banquet/kailash.mp4",
+      video: "/Vedio/func.tarece.mp4",
     },
   ];
 
